@@ -1,6 +1,11 @@
 declare module SC {
+	interface IShortcutContext {
+
+	}
 	class Manager {
 		context: IShortcutContext;
+
+		constructor(isStatic: boolean);
 
 		create(context: Object, layer?: Window|Document|Element|string): SC.Manager;
 

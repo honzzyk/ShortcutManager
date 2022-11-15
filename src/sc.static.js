@@ -1,2 +1,5 @@
 /*global SC*/
-var ShortcutManager = new SC.Manager(true); //eslint-disable-line
+if (globalThis.ShortcutManager) {
+	console.warn("ShortcutManager already exists on globalThis, redefining");
+}
+globalThis.ShortcutManager = new SC.Manager(true);
