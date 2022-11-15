@@ -2,7 +2,7 @@
 
 ### Info
 Manager for shortcuts in web application. Is used for registering shortcuts on your web application. You can handle
-more states, like more shortcuts based on current context and so on. It is a minimalistic library (< 8kB min file) 
+more states, like more shortcuts based on current context and so on. It is a minimalistic library (< 8kB min file)
 and is really simple to use it.
 
 ### How to install
@@ -82,14 +82,14 @@ You can turn on debug mode that is used for consoling some information about eve
 
 ### SCM Layers
 
-SCM layers are created for handling shortcuts in modal windows or for another contexts. You can create more shortcut managers and 
-for modal you create manager with another layer. 
+SCM layers are created for handling shortcuts in modal windows or for another contexts. You can create more shortcut managers and
+for modal you create manager with another layer.
 If you open modal window or context window, you can call `activate()` method on SCM in window that switch current active layer for modal window. You can bind shortcuts here and another shortcuts in another layer will not be handled.
 After closing modal window or context window, you can call `deactivate()` method on SCM in window and return to main layer.
 
 ### How to use it
 
-You can use this library in global way. There is global variable `ShortcutManager`. 
+You can use this library in global way. There is global variable `ShortcutManager`.
 
 #### Example 1 - simple use
 
@@ -131,6 +131,7 @@ scmMain.activate();
 
 MIT License
 
+Copyright (c) 2022 Radek Sedlák\
 Copyright (c) 2015 Petr Jelínek, Stanislav Hacker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

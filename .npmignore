@@ -1,0 +1,11 @@
+.grunt/
+.idea/
+test/
+src/
+.editorconfig
+.eslintrc
+.gitignore
+.npmignore
+Gruntfile.js
+TestsRunner.html
+ShortcutManager.iml

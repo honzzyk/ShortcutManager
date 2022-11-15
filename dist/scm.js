@@ -1,4 +1,8 @@
-var SC = {};;/*global SC*/
+if (globalThis.SC) {
+	console.warn("SC already exists on globalThis, redefining");
+}
+globalThis.SC = {};
+;/*global SC*/
 SC.Store = (function (SC, p) {
 	"use strict";
 
@@ -891,4 +895,7 @@ SC.Manager = (function (SC, p) {
 	return Manager;
 
 }(SC));;/*global SC*/
-var ShortcutManager = new SC.Manager(true); //eslint-disable-line
+if (globalThis.ShortcutManager) {
+	console.warn("ShortcutManager already exists on globalThis, redefining");
+}
+globalThis.ShortcutManager = new SC.Manager(true);
