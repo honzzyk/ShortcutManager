@@ -188,7 +188,7 @@ SC.Manager = (function (SC, p) {
 					//handler item
 					handlerItem = handlers[i];
 					//run handler on index
-					handled = handlerItem.handler(normalized, handlerItem.modifier, handlerItem.from);
+					handled = handlerItem.handler(normalized, handlerItem.modifier, handlerItem.from, event);
 					//handled
 					if (handled) {
 						//debug mode message and handler
