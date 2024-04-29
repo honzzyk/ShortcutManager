@@ -748,7 +748,7 @@ SC.Manager = (function (SC, p) {
 					//handler item
 					handlerItem = handlers[i];
 					//run handler on index
-					handled = handlerItem.handler(normalized, handlerItem.modifier, handlerItem.from);
+					handled = handlerItem.handler(normalized, handlerItem.modifier, handlerItem.from, event);
 					//handled
 					if (handled) {
 						//debug mode message and handler
@@ -894,7 +894,8 @@ SC.Manager = (function (SC, p) {
 
 	return Manager;
 
-}(SC));;/*global SC*/
+}(SC));
+;/*global SC*/
 if (globalThis.ShortcutManager) {
 	console.warn("ShortcutManager already exists on globalThis, redefining");
 }

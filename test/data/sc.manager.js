@@ -9,15 +9,23 @@ describe("shortcuts - manager", function () {
 		shortcutManagerOne = ShortcutManager.create(context1),
 		shortcutManagerTwo = ShortcutManager.create(context2),
 		shortcutManagerLayer = ShortcutManager.create(context3, "testLayer"),
+		event66 = event(66, true),
+		event67 = event(67, true),
+		event48 = event(48, true),
+		event49 = event(49, true),
+		event50 = event(50, true),
+		event51 = event(51, true),
+		event52 = event(52, true),
+		event53 = event(53, true),
 		shortcuts = {
-			"Ctrl+B": event(66, true),
-			"Ctrl+C": event(67, true),
-			"Ctrl+0": event(48, true),
-			"Ctrl+1": event(49, true),
-			"Ctrl+2": event(50, true),
-			"Ctrl+3": event(51, true),
-			"Ctrl+4": event(52, true),
-			"Ctrl+5": event(53, true)
+			"Ctrl+B": event66,
+			"Ctrl+C": event67,
+			"Ctrl+0": event48,
+			"Ctrl+1": event49,
+			"Ctrl+2": event50,
+			"Ctrl+3": event51,
+			"Ctrl+4": event52,
+			"Ctrl+5": event53,
 		};
 
 	/**
@@ -73,11 +81,11 @@ describe("shortcuts - manager", function () {
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+2"]);
 		expect(handlers.one).toHaveBeenCalledTimes(1);
-		expect(handlers.one).toHaveBeenCalledWith("ctrl+2", 2, 0);
+		expect(handlers.one).toHaveBeenCalledWith("ctrl+2", 2, 0, event50);
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+0"]);
 		expect(handlers.one).toHaveBeenCalledTimes(2);
-		expect(handlers.one).toHaveBeenCalledWith("ctrl+0", 0, 0);
+		expect(handlers.one).toHaveBeenCalledWith("ctrl+0", 0, 0, event48);
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+4"]);
 		expect(handlers.one).toHaveBeenCalledTimes(2);
@@ -88,11 +96,11 @@ describe("shortcuts - manager", function () {
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+B"]);
 		expect(handlers.one).toHaveBeenCalledTimes(1);
-		expect(handlers.one).toHaveBeenCalledWith("ctrl+b", -1, -1);
+		expect(handlers.one).toHaveBeenCalledWith("ctrl+b", -1, -1, event66);
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+C"]);
 		expect(handlers.one).toHaveBeenCalledTimes(2);
-		expect(handlers.one).toHaveBeenCalledWith("ctrl+c", -1, -1);
+		expect(handlers.one).toHaveBeenCalledWith("ctrl+c", -1, -1, event67);
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+0"]);
 		expect(handlers.one).toHaveBeenCalledTimes(2);
@@ -106,15 +114,15 @@ describe("shortcuts - manager", function () {
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+B"]);
 		expect(handlers.one).toHaveBeenCalledTimes(1);
-		expect(handlers.one).toHaveBeenCalledWith("ctrl+b", -1, -1);
+		expect(handlers.one).toHaveBeenCalledWith("ctrl+b", -1, -1, event66);
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+0"]);
 		expect(handlers.one).toHaveBeenCalledTimes(2);
-		expect(handlers.one).toHaveBeenCalledWith("ctrl+0", 0, 0);
+		expect(handlers.one).toHaveBeenCalledWith("ctrl+0", 0, 0, event48);
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+2"]);
 		expect(handlers.one).toHaveBeenCalledTimes(3);
-		expect(handlers.one).toHaveBeenCalledWith("ctrl+2", 2, 0);
+		expect(handlers.one).toHaveBeenCalledWith("ctrl+2", 2, 0, event50);
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+5"]);
 		expect(handlers.one).toHaveBeenCalledTimes(3);
@@ -125,11 +133,11 @@ describe("shortcuts - manager", function () {
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+2"]);
 		expect(handlers.one).toHaveBeenCalledTimes(1);
-		expect(handlers.one).toHaveBeenCalledWith("ctrl+2", 2, 2);
+		expect(handlers.one).toHaveBeenCalledWith("ctrl+2", 2, 2, event50);
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+3"]);
 		expect(handlers.one).toHaveBeenCalledTimes(2);
-		expect(handlers.one).toHaveBeenCalledWith("ctrl+3", 3, 2);
+		expect(handlers.one).toHaveBeenCalledWith("ctrl+3", 3, 2, event51);
 
 		simulateFire(shortcutManagerOne, shortcuts["Ctrl+5"]);
 		expect(handlers.one).toHaveBeenCalledTimes(2);
