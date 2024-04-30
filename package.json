@@ -1,6 +1,6 @@
 {
   "name": "@sedlak.r/scm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Shortcut Manager for web pages",
   "source": "src/sc.js",
   "main": "./dist/scm.min.js",
