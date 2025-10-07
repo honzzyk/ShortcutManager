@@ -29,6 +29,11 @@ describe("shortcuts - normalizer", function () {
 		expect(normalizer.normalize("-")).toBe("-");
 		expect(normalizer.normalize("Ctrl+Enter")).toBe("ctrl+return");
 		expect(normalizer.normalize("Ctrl+Return")).toBe("ctrl+return");
+		expect(normalizer.normalize("Ctrl++")).toBe("ctrl++");
+		expect(normalizer.normalize("++Ctrl")).toBe("ctrl++");
+		expect(normalizer.normalize("Ctrl+++Shift")).toBe("ctrl+shift++");
+		expect(normalizer.normalize("Alt++")).toBe("alt++");
+		expect(normalizer.normalize("Ctrl+Shift++")).toBe("ctrl+shift++");
 	});
 
 	it("normalize from event object", function () {

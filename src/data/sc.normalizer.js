@@ -164,12 +164,7 @@ SC.Normalizer = (function (SC, p) {
 			result = [],
 			others = [];
 
-		// no splitting of exactly "+"
-		if (shortcut === plus) {
-			return plus;
-		}
-		//split by +
-		parts = shortcut.toLowerCase().split(plus);
+		parts = splitShortcutByPlus(shortcut);
 		// build new array with ctrl/alt/shift sorted
 		for (i = 0; i < parts.length; i++) {
 			order = getOrder(parts[i]);
@@ -191,6 +186,42 @@ SC.Normalizer = (function (SC, p) {
 		});
 		//rejoin
 		return result.join(plus);
+	}
+
+	/**
+	 * Normalize name
+	 * @param {string} shortcut
+	 * @returns {string[]}
+	 */
+	function splitShortcutByPlus(shortcut) {
+		var lowerCasedShortcut = shortcut.toLowerCase(),
+			result = [],
+			currentStack = "",
+			currentChar,
+			i;
+
+		for (i = 0; i < lowerCasedShortcut.length; i++) {
+			currentChar = lowerCasedShortcut[i];
+			if (currentChar === plus) {
+				if (currentStack) {
+					result.push(currentStack);
+					currentStack = "";
+				} else {
+					result.push(plus);
+					if (lowerCasedShortcut[i + 1] === plus) {
+						i++; // skip the next '+' if it exists because it would be the separator
+					}
+				}
+			} else {
+				currentStack += currentChar;
+			}
+		}
+
+		if (currentStack) {
+			result.push(currentStack);
+		}
+
+		return result;
 	}
 
 	/**
